@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理后台 - ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div id="loadingState" class="loading-spinner">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+      </svg>
+    </div>
+    <div class="card glass-card hidden" id="cardArea">
+      <div class="page-header">
+        <h1 class="page-title">管理后台</h1>
+      </div>
+
+      <!-- 管理面板 -->
+      <div id="adminPanel" class="hidden">
+        <div class="admin-toolbar">
+          <input type="text" id="searchInput" class="input" placeholder="搜索 ID...">
+          <button id="refreshBtn" class="btn btn-secondary">刷新</button>
+          <button id="settingsBtn" class="btn btn-secondary">设置</button>
+          <button id="logoutBtn" class="btn btn-secondary">退出</button>
+        </div>
+
+        <div id="textList" class="text-list"></div>
+        <div class="pagination">
+          <button id="prevPageBtn" class="btn btn-secondary" disabled>上一页</button>
+          <span id="pageInfo" class="page-info"></span>
+          <button id="nextPageBtn" class="btn btn-secondary" disabled>下一页</button>
+        </div>
+      </div>
+
+      <!-- 文本详情弹窗 -->
+      <div id="detailModal" class="modal hidden">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3>文本详情</h3>
+            <button id="closeModal" class="btn-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+          </div>
+          <div id="detailContent" class="detail-content"></div>
+          <div class="modal-footer">
+            <button id="copyTextBtn" class="btn btn-secondary">复制文本</button>
+            <button id="deleteTextBtn" class="btn btn-danger">删除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/js/admin.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

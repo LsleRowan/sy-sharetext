@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理员登录 - ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="card glass-card">
+      <div class="page-header">
+        <h1 class="page-title">管理登录</h1>
+      </div>
+
+      <div id="setupSection" class="hidden">
+        <p class="form-hint">首次使用，请设置管理员密码</p>
+        <form id="setupForm">
+          <div class="form-group">
+            <input type="password" id="setupPassword" class="input" placeholder="设置密码" required>
+          </div>
+          <div class="form-group">
+            <input type="password" id="setupPasswordConfirm" class="input" placeholder="确认密码" required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">设置密码</button>
+        </form>
+      </div>
+
+      <div id="loginSection">
+        <form id="loginForm">
+          <div class="form-group">
+            <input type="password" id="loginPassword" class="input" placeholder="输入密码" required autofocus>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">登录</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/js/admin-login.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

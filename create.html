@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>创建文本 - ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="card glass-card">
+      <div class="page-header">
+        <div class="logo">
+          <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+            <path d="m21.854 2.147-10.94 10.939"></path>
+          </svg>
+          </div>
+  
+        </div>
+        <h1 class="page-title">创建文本</h1>
+      </div>
+
+      <!-- 创建表单区域 -->
+      <div id="createSection">
+        <!-- 分享模式切换 -->
+        <div class="segmented-control" id="modeSwitch">
+          <button type="button" class="segment segment-active" data-mode="id">临时 ID</button>
+          <button type="button" class="segment" data-mode="link">普通链接</button>
+          <button type="button" class="segment" data-mode="link-encrypted">加密链接</button>
+        </div>
+        <div class="mode-desc" id="modeDesc">生成 5 位数字 ID，方便在其他设备输入</div>
+
+        <!-- 创建表单 -->
+        <form id="createForm">
+          <div class="form-group">
+            <textarea
+              id="contentInput"
+              class="textarea"
+              placeholder="输入要分享的文本..."
+              rows="8"
+              maxlength="1048576"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">有效期</label>
+            <div class="expiry-row">
+              <input
+                type="number"
+                id="expiryValue"
+                class="input input-small"
+                value="1"
+                min="1"
+                max="999"
+              >
+              <select id="expiryUnit" class="select">
+                <option value="day">天</option>
+                <option value="hour">小时</option>
+                <option value="minute">分钟</option>
+                <option value="count">次</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block" id="createBtn">创建文本</button>
+        </form>
+      </div>
+
+      <div class="home-footer">
+        <a href="/" class="link">获取文本</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 创建成功弹窗 -->
+  <div id="successModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="success-header">
+           <h3>创建成功</h3>
+           <span id="successExpiry" class="success-expiry-tag"></span>
+           <span id="successMode" class="success-mode-tag hidden"></span>
+         </div>
+          <button id="closeModal" class="btn-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      </div>
+      <div class="detail-content success-content">
+        <div id="successValue" class="success-value"></div>
+      </div>
+      <div class="modal-footer success-footer">
+        <button class="btn btn-primary" id="successCopyBtn">复制</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 站点密码弹窗 -->
+  <div id="sitePasswordModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>站点访问验证</h3>
+      </div>
+      <div class="detail-content">
+        <form id="sitePasswordForm">
+          <div class="form-group">
+            <input type="password" id="sitePasswordInput" class="input" placeholder="请输入访问密码以继续" required autofocus>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">验证</button>
+        </form>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/create.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

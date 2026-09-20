@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div id="loadingState" class="loading-spinner">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+      </svg>
+    </div>
+    <div id="cardArea" class="card glass-card hidden">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+        </div>
+      </div>
+      <div id="emptyState" class="hidden">
+        <h1 class="title">分享链接无效</h1>
+        <p class="subtitle">请通过分享链接访问此页面</p>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+      <div id="notFoundState" class="hidden">
+        <h1 class="title">内容不存在</h1>
+        <p class="subtitle">该文本可能已被删除或链接有误</p>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+      <div id="expiredState" class="hidden">
+        <h1 class="title">链接已失效</h1>
+        <p class="subtitle">该文本已过期或达到查看次数限制</p>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+      <div id="lockedState" class="hidden">
+        <h1 class="title">无法查看</h1>
+        <p class="subtitle">该内容已加密，请使用完整的分享链接访问</p>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+      <div id="decryptErrorState" class="hidden">
+        <h1 class="title">无法查看</h1>
+        <p class="subtitle">分享链接中的加密密钥无效或内容已损坏</p>
+        <div class="home-footer">
+          <a href="/" class="link">返回首页</a>
+        </div>
+      </div>
+      <div id="contentArea" class="hidden">
+        <div class="detail-text" id="textContent"></div>
+        <div class="detail-meta">
+          <div class="detail-meta-item"><span>剩余</span><span id="textExpiry"></span></div>
+        </div>
+        <button class="btn btn-copy btn-block" id="copyBtn">复制文本</button>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/js/view.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div class="card glass-card">
+      <div class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+            <path d="M12 12v9"></path>
+            <path d="m8 17 4 4 4-4"></path>
+          </svg>
+        </div>
+
+      </div>
+
+      <h1 class="title">获取文本</h1>
+      <p class="subtitle">输入分享 ID 查看内容</p>
+
+      <form id="fetchForm" class="fetch-form">
+        <input
+          type="text"
+          id="idInput"
+          class="input"
+          placeholder="输入 ID"
+          autocomplete="off"
+          autofocus
+        >
+        <button type="submit" class="btn btn-primary" id="fetchBtn">获取文本</button>
+      </form>
+
+      <div class="home-footer">
+        <a href="/create" class="link">创建文本 →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 获取文本结果弹窗 -->
+  <div id="resultModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="success-header">
+          <h3>获取成功</h3>
+          <span id="resultIdTag" class="success-id-tag"></span>
+          <span id="resultExpiryTag" class="success-expiry-tag"></span>
+        </div>
+        <button id="closeModal" class="btn-close"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg></button>
+      </div>
+      <div class="detail-content">
+        <div class="detail-text" id="resultContent"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-copy" id="copyTextBtn">复制文本</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/js/index.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

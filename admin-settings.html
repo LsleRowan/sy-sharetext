@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>站点设置 - ShareText</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body>
+  <div class="bg-decoration">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+  </div>
+  <div class="container">
+    <div id="loadingState" class="loading-spinner">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-6.219-8.56"></path>
+      </svg>
+    </div>
+    <div class="card glass-card hidden" id="cardArea">
+      <div class="page-header">
+        <h1 class="page-title">站点设置</h1>
+        <button id="backBtn" class="btn btn-secondary">返回</button>
+      </div>
+
+      <div id="settingsPanel" class="hidden">
+        <!-- 站点密码 -->
+        <div class="settings-section">
+          <div class="settings-title">站点密码</div>
+          <div class="setting-item">
+            <span class="setting-label">启用站点密码</span>
+            <label class="toggle-switch">
+              <input type="checkbox" id="sitePasswordToggle">
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
+          <div id="sitePasswordInput" class="site-password-input">
+            <input type="password" id="newSitePassword" class="input" placeholder="设置站点密码（至少 6 位）">
+            <button id="saveSitePasswordBtn" class="btn btn-primary">保存</button>
+          </div>
+        </div>
+
+        <!-- 管理员密码 -->
+        <div class="settings-section">
+          <div class="settings-title">管理员密码</div>
+          <div class="admin-password-input">
+            <input type="password" id="oldAdminPassword" class="input" placeholder="原密码">
+            <input type="password" id="newAdminPassword" class="input" placeholder="新密码（至少 6 位）">
+            <button id="changeAdminPasswordBtn" class="btn btn-primary">修改密码</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/js/admin-settings.js"></script>
+
+  <div id="toast" class="toast hidden"><span id="toastMsg"></span></div>
+</body>
+</html>

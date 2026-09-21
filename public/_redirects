@@ -1,5 +1,0 @@
-/admin/login  /admin-login.html  200
-/admin/settings  /admin-settings.html  200
-/admin  /admin.html  200
-/create  /create.html  200
-/t/:token  /t.html  200
